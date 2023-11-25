@@ -20,46 +20,8 @@
         elm = pkgs.elmPackages.elm;
         nodejs = pkgs.nodejs_20;
 
-        #        elm-go-pkg = pkgs.stdenv.mkDerivation {
-        #          name = "elm-go";
-        #          src = elm-go-src;
-        #          buildInputs = [nodejs_20];
-        #          installPhase = ''
-        #            mkdir -p $out/bin
-        #
-        #          '';
-        #
-        #        };
-
-        #        elm-go-pkg = pkgs.stdenv.mkDerivation {
-        #          name = "elm-go";
-        #          src = elm-go-src;
-        #          buildInputs = [ nodejs_20 ];
-        #          buildPhase = ''
-        #            ln -s ${nodeDependencies}/lib/node_modules ./node_modules
-        #            export PATH="${nodeDependencies}/bin:$PATH"
-        #
-        #            mkdir -p $out/bin
-        #
-        #            # Build the distribution bundle in "dist"
-        #            webpack
-        #            cp -r dist $out/
-        #          '';
-        #        };
-
-        #        nodeDependencies2 =
-        #                    (import nodeDependencies { });
-        #          (pkgs.callPackage (import nodeDependencies { }) { }).nodeDependencies;
-
         node2nixOutput =
           import nodeDependencies { inherit pkgs system nodejs; };
-
-        #        elm-go-pkg = pkgs.writeScriptBin "elm-go" ''
-        #          echo nodeDeps is ${nodeDependencies2}
-        #          ln -s ${nodeDependencies2}/lib/node_modules ./node_modules
-        #          export PATH="${nodeDependencies2}/bin:$PATH"
-        #          ${pkgs.nodejs_20}/bin/node ${elm-go-src}/bin/elm-go.js "$@"
-        #        '';
 
         nodeDeps = node2nixOutput.nodeDependencies;
 
