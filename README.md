@@ -15,7 +15,7 @@ $ nix run github:r-k-b/nix-elm-go
 Or, add it to your Flake inputs like:
 
 ```nix
-    inputs.nix-elm-go.packages.x86-64_linux.elm-go
+    inputs.nix-elm-go.packages.x86_64-linux.elm-go
 ```
 
 Note, you'll need to provide your own Elm package.
