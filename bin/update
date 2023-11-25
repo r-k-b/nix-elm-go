@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -eou pipefail
+
+# ensure all mentioned relative paths are relative to this script
+# https://stackoverflow.com/a/17744637/2014893
+scriptFolder="$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
+cd "$scriptFolder"/../node2nix
+echo working in "$PWD"
+
+nix flake update
+
+srcPath="$(nix build ..#elm-go-src --no-link --json | jq -r .[].path)"
+echo srcPath is "$srcPath"
+
+node2nix -i "$srcPath"/package.json -l "$srcPath"/package-lock.json
+
+nixfmt ./*.nix
