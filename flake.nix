@@ -102,7 +102,14 @@
       in {
         devShell = pkgs.mkShell {
           name = "nix-elm-go-devshell";
-          buildInputs = with pkgs; [ elm nix nixfmt node2nix nodejs ];
+          buildInputs = with pkgs; [
+            elm
+            nix
+            nixfmt
+            node2nix
+            nodejs
+            perl # for the workaround in `bin/update`
+          ];
         };
         apps = {
           default = {

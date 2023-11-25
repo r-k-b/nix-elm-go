@@ -26,3 +26,8 @@ Note, you'll need to provide your own Elm package.
 run `./bin/update`, then commit the changed files.
 
 Tip: with direnv enabled, `update` is already on your path.
+
+Tip: if you're hacking on flake inputs like `path:node2nix` but the changes
+aren't coming thru to `nix run` / `nix build`, it's probably because the cache
+isn't being invalidated.  
+Try `nix build .# --recreate-lock-file --refresh`.

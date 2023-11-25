@@ -52,7 +52,7 @@
       "flake": false,
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-4xCJvrwIuUsVr599A7zY8+OIq+6vC+Ro3acU2WsukV8=",
+        "narHash": "sha256-AwBl9YsLt1rpt0xJlDFrqernetw5W1HoENQxsCwLTGw=",
         "path": "node2nix",
         "type": "path"
       },

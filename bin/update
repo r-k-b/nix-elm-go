@@ -15,4 +15,14 @@ echo srcPath is "$srcPath"
 
 node2nix -i "$srcPath"/package.json -l "$srcPath"/package-lock.json
 
+# Workaround this error in the default node2nix output:
+# > error: access to absolute path '/nix/store/rkaq5sn0pp0q98gc25fwm02af636z5v0-source' is forbidden in pure eval mode (use '--impure' to override)
+#
+# related? https://github.com/NixOS/nixpkgs/issues/179172
+#
+# (why is that happening? Are we importing it wrong, or does it not support use inside Flakes?)
+#
+# (could we do a similar workaround with something like `nodeDependencies.override (...)`?
+perl -0777 -i -pe 's/nix-gitignore\.gitignoreSourcePure.*[\n.*]*args\.src/args.src/igs' ./node-packages.nix
+
 nixfmt ./*.nix
