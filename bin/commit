@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -eou pipefail
+
+# ensure all mentioned relative paths are relative to this script
+# https://stackoverflow.com/a/17744637/2014893
+scriptFolder="$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
+cd "$scriptFolder"/..
+echo working in "$PWD"
+
+git add .
+
+cat << EOF | git commit --file=-
+chore: bump dependencies
+
+Via 'bin/commit'.
+EOF
