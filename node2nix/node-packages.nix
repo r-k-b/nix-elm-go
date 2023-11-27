@@ -1248,7 +1248,7 @@ let
     name = "elm-go";
     packageName = "elm-go";
     version = "5.0.20";
-    src = ../../../../../nix/store/rkaq5sn0pp0q98gc25fwm02af636z5v0-source;
+    src = ../../../../../../nix/store/rkaq5sn0pp0q98gc25fwm02af636z5v0-source;
     dependencies = [
       sources."ansi-styles-3.2.1"
       sources."anymatch-3.1.2"
