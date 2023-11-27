@@ -2,6 +2,8 @@ on:
   schedule:
     - # ~6am AEST
     - cron: "19 19 * * *"
+permissions:
+  contents: write # let the action push the commit it made
 jobs:
   bump_versions:
     name: Bump Dependency Versions
