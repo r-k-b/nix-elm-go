@@ -10,7 +10,10 @@ echo working in "$PWD"
 
 nix flake update
 
-srcPath="$(nix build ..#elm-go-src --no-link --json | jq -r .[].path)"
+nixOutputJson=$(nix build ..#elm-go-src --no-link --json)
+echo nixOutputJson is "$nixOutputJson"
+
+srcPath="$(echo "$nixOutputJson" | jq -r .[0])"
 echo srcPath is "$srcPath"
 
 node2nix -i "$srcPath"/package.json -l "$srcPath"/package-lock.json
