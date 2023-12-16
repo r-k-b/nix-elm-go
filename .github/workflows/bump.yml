@@ -1,4 +1,5 @@
 on:
+  push:
   schedule:
     - # ~6am AEST
     - cron: "19 19 * * *"
