@@ -17,7 +17,7 @@ jobs:
         if: env.using_self_hosted_runner_with_nix != 'true'
         uses: cachix/install-nix-action@v31
         with:
-          install_url: "https://releases.nixos.org/nix/nix-2.18.1/install"
+          install_url: "https://releases.nixos.org/nix/nix-2.28.3/install"
       - name: Run the Magic Nix Cache # https://determinate.systems/posts/magic-nix-cache
         uses: DeterminateSystems/magic-nix-cache-action@v9
       - name: pull dev environment
