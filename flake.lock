@@ -52,15 +52,14 @@
     "nodeDependencies": {
       "flake": false,
       "locked": {
-        "lastModified": 1,
-        "narHash": "sha256-/GXZRBj2NEdSuiwtju8OETGj189UeM8zjRKhygqO668=",
         "path": "node2nix",
         "type": "path"
       },
       "original": {
         "path": "node2nix",
         "type": "path"
-      }
+      },
+      "parent": []
     },
     "root": {
       "inputs": {
