@@ -1,7 +1,9 @@
 # why?
 
-I wanted to use `lucamug/elm-go` from source through Nix, instead of just the
+I wanted to use [lucamug/elm-go] from source through Nix, instead of just the
 final tar file through npm.
+
+[lucamug/elm-go]: https://github.com/lucamug/elm-go
 
 
 # how?
